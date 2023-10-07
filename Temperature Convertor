@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #5389A4; /* Set the background color of the page */
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #B8DEE8; /* Set the background color of the container */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #5389A4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <label for="celsius">Enter Temperature in Celsius:</label>
+        <input type="text" id="celsius" placeholder="Enter temperature in Celsius">
+        
+        <button onclick="convertTemperature()">Convert</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function convertTemperature() {
+            const celsiusInput = document.getElementById('celsius').value;
+            const celsius = parseFloat(celsiusInput);
+
+            if (isNaN(celsius)) {
+                alert("Please enter a valid temperature.");
+                return;
+            }
+
+            const fahrenheit = (celsius * 9/5) + 32;
+            const result = `${celsius}°C is equal to ${fahrenheit.toFixed(2)}°F.`;
+
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>
